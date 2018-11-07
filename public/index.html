@@ -12,7 +12,7 @@
         source: 'http://clappr.io/highline.mp4',
         poster: 'http://clappr.io/poster.png',
         parentId: "#player",
-        plugins: [ClapprPip],
+        plugins: [ClapprPip.PipButton, ClapprPip.PipPlugin],
         autoPlay: true,
         playback: { playInline: true },
       });
