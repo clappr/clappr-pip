@@ -1,4 +1,4 @@
-import { Events, Log, UICorePlugin } from 'clappr'
+import { Events, UICorePlugin } from 'clappr'
 
 import icon from './icons/pip.svg'
 
@@ -34,7 +34,7 @@ export default class PipButton extends UICorePlugin {
   }
 
   togglePictureInPicture() {
-    Log.debug(this.name, 'togglePictureInPicture()')
+    this.pipPlugin && this.pipPlugin.togglePictureInPicture()
   }
 
   hide() { this.$el.hide() }

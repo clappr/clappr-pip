@@ -1,7 +1,22 @@
-import { CorePlugin } from 'clappr'
+import { CorePlugin, Events } from 'clappr'
+
+import W3CPip from './w3c_pip'
 
 export default class PipPlugin extends CorePlugin {
   get name() { return 'pip' }
+
+  get playback() { return this.core.getCurrentPlayback() }
+
+  get videoElement() { return this.playback && this.playback.el }
+
+  constructor(core) {
+    super(core)
+    this.playback && this._onContainerChanged()
+  }
+
+  bindEvents() {
+    this.listenTo(this.core.mediaControl, Events.MEDIACONTROL_CONTAINERCHANGED, this._onContainerChanged)
+  }
 
   getExternalInterface() {
     return {
@@ -13,17 +28,27 @@ export default class PipPlugin extends CorePlugin {
     }
   }
 
-  isPictureInPictureSupported() { return false }
+  isPictureInPictureSupported() {
+    return this._pip && this._pip.isSupported
+  }
 
-  isPictureInPictureActive() { return false }
+  isPictureInPictureActive() {
+    return this._pip && this._pip.isActive
+  }
 
-  enterPictureInPicture() {}
+  enterPictureInPicture() {
+    return this._pip && this._pip.enterPictureInPicture()
+  }
 
-  exitPictureInPicture() {}
+  exitPictureInPicture() {
+    return this._pip && this._pip.exitPictureInPicture()
+  }
 
   togglePictureInPicture() {
-    this.isPictureInPictureActive()
-      ? this.exitPictureInPicture()
-      : this.enterPictureInPicture()
+    return this._pip && this._pip.togglePictureInPicture()
+  }
+
+  _onContainerChanged() {
+    this._pip = new W3CPip(this.videoElement)
   }
 }
