@@ -1,0 +1,27 @@
+{
+  "name": "clappr-pip",
+  "version": "1.0.0",
+  "description": "Clappr plugin for adding picture-in-picture-support.",
+  "main": "dist/clappr-pip.js",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server",
+    "build": "./node_modules/.bin/webpack --progress",
+    "release": "./node_modules/.bin/webpack -p  --progress",
+    "watch": "./node_modules/.bin/webpack --watch",
+    "test": "echo 'No tests configured'; exit 0"
+  },
+  "author": "Bruno Torres <bruno.torres@me.com>",
+  "license": "BSD-3-Clause",
+  "repository": "github:towerz/clappr-pip",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "svg-inline-loader": "^0.8.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

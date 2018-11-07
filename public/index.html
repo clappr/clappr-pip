@@ -1,0 +1,21 @@
+<head>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+  <script type="text/javascript" src="clappr-pip.js" async></script>
+</head>
+<body>
+  <div id="player"></div>
+  <script>
+    var player;
+    window.onload = function() {
+      Clappr.Log.setLevel(0)
+      player = new Clappr.Player({
+        source: 'http://clappr.io/highline.mp4',
+        poster: 'http://clappr.io/poster.png',
+        parentId: "#player",
+        plugins: [ClapprPip],
+        autoPlay: true,
+        playback: { playInline: true },
+      });
+    };
+  </script>
+</body>

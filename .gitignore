@@ -1,0 +1,8 @@
+build
+node_modules
+.env
+dist
+coverage/
+npm-debug.log
+docs/_book/
+docs/*.pdf
