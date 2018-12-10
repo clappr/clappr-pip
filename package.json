@@ -6,7 +6,7 @@
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server",
     "build": "./node_modules/.bin/webpack --progress",
-    "release": "./node_modules/.bin/webpack -p  --progress",
+    "release": "./node_modules/.bin/webpack -p --mode production --progress --output dist/clappr-pip.min.js",
     "watch": "./node_modules/.bin/webpack --watch",
     "test": "echo 'No tests configured'; exit 0"
   },
