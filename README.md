@@ -1,6 +1,6 @@
 # Clappr Picture-In-Picture
 
-Clappr plugin for adding OS-based picture-in-picture support on both desktop and mobile. Currently supports Safari on iOS and macOS, and Chrome on Android, Linux, Windows and macOS.
+Clappr plugin for adding OS-based picture-in-picture support on both desktop and mobile. Currently supports Safari on iOS and macOS, and Chrome on Android, Linux, Windows and macOS. A demo is available on https://clappr.github.io/clappr-pip/.
 
 # Usage
 
@@ -8,7 +8,7 @@ Load Clappr and the PiP plugin(s) script on your webpage:
 
 ```html
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-  <script type="text/javascript" src="clappr-pip.js" async></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js" async></script>
 ```
 
 When instantiating a new player, add `ClapprPip.PipPlugin` (and `ClapprPip.PipButton` if you want a button on the player `MediaControl`):
