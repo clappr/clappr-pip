@@ -1,6 +1,6 @@
 {
   "name": "clappr-pip",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Clappr plugin for adding OS-based picture-in-picture support.",
   "main": "dist/clappr-pip.js",
   "scripts": {
