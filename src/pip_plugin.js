@@ -16,7 +16,7 @@ export default class PipPlugin extends CorePlugin {
   }
 
   bindEvents() {
-    this.listenTo(this.core.mediaControl, Events.MEDIACONTROL_CONTAINERCHANGED, this._onContainerChanged)
+    this.listenTo(this.core, Events.CORE_ACTIVE_CONTAINER_CHANGED, this._onContainerChanged)
   }
 
   getExternalInterface() {

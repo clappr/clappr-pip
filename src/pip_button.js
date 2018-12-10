@@ -26,7 +26,11 @@ export default class PipButton extends UICorePlugin {
   }
 
   bindEvents() {
-    this.listenTo(this.core.mediaControl, Events.MEDIACONTROL_RENDERED, this.addButtonToMediaControl)
+    if (this.core.ready) {
+      this.listenTo(this.core.mediaControl, Events.MEDIACONTROL_RENDERED, this.addButtonToMediaControl)
+    } else {
+      this.listenToOnce(this.core, Events.CORE_READY, this.bindEvents)
+    }
   }
 
   bindClick() {
@@ -44,7 +48,7 @@ export default class PipButton extends UICorePlugin {
   addButtonToMediaControl() {
     this.$el.remove()
     if (!this.isPipSupported) return
-    this.core.mediaControl.$el.find('.media-control-button[data-fullscreen]').first().after(this.el)
+    this.core.mediaControl.$('.media-control-button[data-fullscreen]').after(this.el)
   }
 
   render() {
