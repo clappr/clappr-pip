@@ -118,7 +118,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
   PipButton: _pip_button2.default,
   PipPlugin: _pip_plugin2.default,
-  version: "0.1.0"
+  version: "0.2.0"
 };
 module.exports = exports.default;
 
@@ -193,7 +193,11 @@ var PipButton = function (_UICorePlugin) {
   _createClass(PipButton, [{
     key: 'bindEvents',
     value: function bindEvents() {
-      this.listenTo(this.core.mediaControl, _clappr.Events.MEDIACONTROL_RENDERED, this.addButtonToMediaControl);
+      if (this.core.ready) {
+        this.listenTo(this.core.mediaControl, _clappr.Events.MEDIACONTROL_RENDERED, this.addButtonToMediaControl);
+      } else {
+        this.listenToOnce(this.core, _clappr.Events.CORE_READY, this.bindEvents);
+      }
     }
   }, {
     key: 'bindClick',
@@ -224,7 +228,7 @@ var PipButton = function (_UICorePlugin) {
     value: function addButtonToMediaControl() {
       this.$el.remove();
       if (!this.isPipSupported) return;
-      this.core.mediaControl.$el.find('.media-control-button[data-fullscreen]').first().after(this.el);
+      this.core.mediaControl.$('.media-control-button[data-fullscreen]').after(this.el);
     }
   }, {
     key: 'render',
@@ -317,7 +321,7 @@ var PipPlugin = function (_CorePlugin) {
   _createClass(PipPlugin, [{
     key: 'bindEvents',
     value: function bindEvents() {
-      this.listenTo(this.core.mediaControl, _clappr.Events.MEDIACONTROL_CONTAINERCHANGED, this._onContainerChanged);
+      this.listenTo(this.core, _clappr.Events.CORE_ACTIVE_CONTAINER_CHANGED, this._onContainerChanged);
     }
   }, {
     key: 'getExternalInterface',
