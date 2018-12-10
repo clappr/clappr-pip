@@ -1,8 +1,12 @@
 const path = require('path')
+const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 var plugins = [
-  new CleanWebpackPlugin(['dist'])
+  new CleanWebpackPlugin(['dist']),
+  new webpack.DefinePlugin({
+    version: JSON.stringify(require('./package.json').version),
+  })
 ];
 
 module.exports = {

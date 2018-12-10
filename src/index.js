@@ -3,5 +3,6 @@ import PipPlugin from './pip_plugin'
 
 export default {
   PipButton,
-  PipPlugin
+  PipPlugin,
+  version
 }
