@@ -1,5 +1,6 @@
-import { CorePlugin, Events } from 'clappr'
+import { Browser, CorePlugin, Events } from 'clappr'
 
+import SafariPip from './safari_pip'
 import W3CPip from './w3c_pip'
 
 export default class PipPlugin extends CorePlugin {
@@ -49,6 +50,8 @@ export default class PipPlugin extends CorePlugin {
   }
 
   _onContainerChanged() {
-    this._pip = new W3CPip(this.videoElement)
+    this._pip = Browser.isSafari
+        ? new SafariPip(this.videoElement)
+        : new W3CPip(this.videoElement)
   }
 }
