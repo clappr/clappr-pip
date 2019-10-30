@@ -17,7 +17,7 @@ module.exports = (env, argv) => {
     entry: path.resolve(__dirname, 'src/index.js'),
     plugins: plugins,
     externals: {
-      clappr: 'Clappr'
+      clappr: 'clappr'
     },
     module: {
       rules: [
