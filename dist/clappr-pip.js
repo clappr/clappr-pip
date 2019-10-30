@@ -1,12 +1,12 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("Clappr"));
+		module.exports = factory(require("clappr"));
 	else if(typeof define === 'function' && define.amd)
-		define(["Clappr"], factory);
+		define(["clappr"], factory);
 	else if(typeof exports === 'object')
-		exports["ClapprPip"] = factory(require("Clappr"));
+		exports["ClapprPip"] = factory(require("clappr"));
 	else
-		root["ClapprPip"] = factory(root["Clappr"]);
+		root["ClapprPip"] = factory(root["clappr"]);
 })(window, function(__WEBPACK_EXTERNAL_MODULE__2__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
